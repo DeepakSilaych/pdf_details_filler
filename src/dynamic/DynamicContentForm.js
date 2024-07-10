@@ -48,12 +48,7 @@ const OptionInput = ({ pair, index, onChange }) => (
 const OptionIFInput = ({ pair, index, onChange }) => (
   <>
     <label className='h-full text-sm flex mr-4' htmlFor={`input-${index}`}>
-      {pair.original.split(':')[1].split('|').map((option, i) => (
-        <span key={i}>
-          {i > 0 && ' | '}
-          {option.split('=')[0]}
-        </span>
-      ))}
+      {pair.original.split('::')[1].split('===')[0]}
     </label>
     <select
       id={`input-${index}`}
@@ -61,8 +56,9 @@ const OptionIFInput = ({ pair, index, onChange }) => (
       className='h-full text-black mb-10 p-2 bg-slate-100'
       onChange={(e) => onChange(index, e.target.value)}
     >
-      {pair.original.split(':')[1].split('|').map((option, i) => (
-        <option key={i} value={option.split('=')[1]}>{option.split('=')[0]}</option>
+      {console.log(pair.original.split('::')[1].split('===')[1].split('|'))}
+      {pair.original.split('::')[1].split('===')[1].split('|').map((option, i) => (
+        <option key={i} value={option.split('>>')[1]}>{option.split('>>')[0]}</option>
       ))}
     </select>
   </>
